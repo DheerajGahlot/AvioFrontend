@@ -5,7 +5,6 @@ import { CgShoppingCart } from "react-icons/cg";
 import { AiOutlineHeart } from "react-icons/ai";
 import "./Header.scss";
 import Search from "./Search/Search";
-import { Context } from "../../utils/context";
 import Cart from "../Cart/Cart";
 
 const Header = () => {
@@ -25,7 +24,7 @@ const Header = () => {
         window.addEventListener("scroll", handleScroll);
     }, []);
 
-    const { cartCount, showCart, setShowCart } = useContext(Context);
+
 
     return (
         <>
@@ -47,16 +46,16 @@ const Header = () => {
                         <AiOutlineHeart />
                         <span
                             className="cart-icon"
-                            onClick={() => setShowCart(true)}
+                        
                         >
                             <CgShoppingCart />
-                            {!!cartCount && <span>{cartCount}</span>}
+                            
                         </span>
                     </div>
                 </div>
             </header>
             {searchModal && <Search setSearchModal={setSearchModal} />}
-            {showCart && <Cart />}
+            { <Cart />}
         </>
     );
 };
